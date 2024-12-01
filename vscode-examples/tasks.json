@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++ cl.exe build active file",
+            "command": "Invoke-MSVCCompiller",
+            "args": [
+                "-InitEnvScript",
+                "${config:buildEnv}",
+                "-BuildDirectory",
+                "${config:buildDir}",
+                "-CompillerName",
+                "cl.exe",
+                "/Zi",
+                "/EHsc",
+                "/Fe:",
+                "${config:buildDir}\\${fileBasenameNoExtension}.exe",
+                "/Fo${config:buildDir}",
+                "/Fd${config:buildDir}",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+            ]
+        }
+    ]
+}
