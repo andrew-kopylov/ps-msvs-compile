@@ -1,10 +1,10 @@
 <#
-Run Microsoft Visual Studio Compiller cl.exe.
+Run Microsoft Visual Studio Compiler cl.exe.
 Place 'PSVSCompile' directory to directory one of list $env:PSModulePath.
 Place files from 'vscode-exmpales' to project directory $PROJECT_DIR/.vscode.
 #>
 
-function Invoke-MSVSCompiller {
+function Invoke-MSVSCompiler {
     Param(
         [Parameter(Mandatory=$True, Position=0)]
         [String]
@@ -15,10 +15,10 @@ function Invoke-MSVSCompiller {
         $BuildDirectory,
         [Parameter(Mandatory=$True, Position=3)]
         [ValidateNotNullOrEmpty()]
-        $CompillerName,
+        $CompilerName,
         [Parameter(ValueFromRemainingArguments=$true)]
         [string[]]
-        $CompillerArgs
+        $CompilerArgs
     )
 
     # Init environment from MSVS run script.
@@ -31,7 +31,7 @@ function Invoke-MSVSCompiller {
         New-Item -Path $BuildDirectory -ItemType Directory -Force
     }
 
-    return Start-Process -FilePath $CompillerName -ArgumentList $CompillerArgs -NoNewWindow
+    return Start-Process -FilePath $CompilerName -ArgumentList $CompilerArgs -NoNewWindow
 }
 
 function Set-EnvironmentFromBatch() {

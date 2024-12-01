@@ -4,13 +4,13 @@
         {
             "type": "shell",
             "label": "C/C++ cl.exe build active file",
-            "command": "Invoke-MSVCCompiller",
+            "command": "Invoke-MSVCCompiler",
             "args": [
                 "-InitEnvScript",
                 "${config:buildEnv}",
                 "-BuildDirectory",
                 "${config:buildDir}",
-                "-CompillerName",
+                "-CompilerName",
                 "cl.exe",
                 "/Zi",
                 "/EHsc",
